@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>setInterval/clearInterval example</title>
+
+<script>
+var intervalID;
+
+function changeCouleur() {
+  intervalID = setInterval(flashText, 1000);
+}
+
+function flashText() {
+  var elem = document.getElementById("ma_boite");
+
+  if (elem.style.color == 'red') {
+    elem.style.color = 'blue';
+  } else {
+    elem.style.color = 'red';
+  }
+}
+
+function stopTextColor() {
+  clearInterval(intervalID);
+}
+</script>
+</head>
+
+<body onload="changeCouleur();">
+<div id="ma_boite">
+<p>Salut tout le monde</p>
+</div>
+<button onclick="stopTextColor();">Stop</button>
+</body>
+</html>
+
+
+
+<!--L'exemple qui suit continuera à appeler la fonction flashtext() toutes les secondes, jusqu'à ce que intervalID soit réinitialisé en cliquant sur le bouton Stop.-->
+
+<!--NotesSection
+La fonction setInterval() est habituellement utilisée pour définir un délai pour les fonctions qui sont exécutées indéfiniment, comme les animations.
+
+La répétition peut être arrêtée à l'aide de window.clearInterval().
+
+Si vous désirez que votre fonction ne soit appelée qu'une seule fois après le délai spécifié, utilisez window.setTimeout().
+
+Le problème de « this »Section
+Lorsque vous passez une méthode à setInterval() (ou toute autre fonction, d'ailleurs), elle sera invoquée avec une mauvaise valeur pour this. Ce problème est expliqué en détail dans la référence JavaScript.
+
+SpécificationSection
+DOM Level 0. Ne fait partie d'aucune spécification.
+
+Étiquettes et contributeurs liés au document
+ Étiquettes :  API DOM Timer
+ Contributeurs à cette page : ClementEstievenart, edspeedy, Sagiliste, fscholz, teoli, khalid32, ethertank, Ceth, Lolo252, BenoitL, Mgjbot
+ Dernière mise à jour par : ClementEstievenart, 4 févr. 2019 à 14:50:23
+Technologies web pour développeurs Référence Web API WindowTimers window.setInterval
+Sujets associés
+WindowTimers-->
